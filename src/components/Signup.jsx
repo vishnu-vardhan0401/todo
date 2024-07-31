@@ -23,7 +23,7 @@ function Signup() {
       navigate('/todo');
     } else {
       navigate('/');
-      console.log(user);
+      
     }
   }, [user, loading, navigate, setuser1]);
 
