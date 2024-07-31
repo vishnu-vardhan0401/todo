@@ -33,7 +33,7 @@ function Todo() {
 
   const handleAdd = async () => {
     if (title === '') {
-      toast.error('Title cannot be empty');
+     
       return;
     }
 
@@ -45,9 +45,9 @@ function Todo() {
       setTitle('');
       retrieveTodos();
       setEdit(false);
-      toast.success('Todo added successfully');
+      
     } catch (e) {
-      toast.error(e.message);
+      console.log(e.message);
     }
   };
 
@@ -56,9 +56,9 @@ function Todo() {
       const docRef = doc(db, 'books', id);
       await deleteDoc(docRef);
       retrieveTodos();
-      toast.success('Todo deleted successfully');
+      
     } catch (e) {
-      toast.error(e.message);
+     console.log(e.message);
     }
   };
 
@@ -68,7 +68,7 @@ function Todo() {
       const todos = snap.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setTodos(todos);
     } catch (e) {
-      toast.error(e.message);
+     console.log(e)
     }
   };
 
@@ -86,7 +86,7 @@ function Todo() {
         }
       }
     } catch (e) {
-      toast.error(e.message);
+      console.log(e.message);
     }
   };
 
@@ -98,7 +98,7 @@ function Todo() {
       })
     }
     catch(e){
-      toast.error(e.message)
+      console.log(e.message)
     }
     }
 
