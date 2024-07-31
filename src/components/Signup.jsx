@@ -32,7 +32,7 @@ function Signup() {
       if (password === confirmPassword) {
         createUserWithEmailAndPassword(auth, email, password)
           .then((snap) => {
-            console.log(snap.user);
+          
             setUsername('');
             setEmail('');
             setPassword('');
@@ -49,7 +49,7 @@ function Signup() {
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password)
         .then((snap) => {
-          console.log(snap.user);
+          
           setLog(false);
           setEmail('');
           setPassword('');
@@ -66,7 +66,7 @@ function Signup() {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+       
         setuser1(true);
         navigate('/todo');
       })
