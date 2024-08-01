@@ -103,7 +103,7 @@ function Todo() {
     }
 
   return (
-    <div className=' w-[90%] ml-6 px-4 md:w-[70%] lg:w-[70%] bg-gray-100 flex flex-col  gap-2 items-center  lg:mt-10 lg:ml-20 md:mt-10 md:ml-20 h-full shadow-2xl rounded-3xl pb-5'>
+    <div className=' w-[90%] ml-6 px-4 md:w-[80%] lg:w-[80%] bg-gray-100 flex flex-col  gap-2 items-center  lg:mt-10 lg:ml-36 md:mt-10 md:ml-20 h-full shadow-2xl rounded-3xl pb-5'>
       <h1 className=' text-blue-500 text-3xl'>MY Todo-s</h1>
       <div className='flex  gap-5 w-[100vw] items-center justify-center'>
         <input
