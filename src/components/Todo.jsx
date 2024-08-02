@@ -5,7 +5,7 @@ import Button from './Button';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify'; // Assuming you are using react-toastify for notifications
+import { toast } from 'react-toastify';
 import { game } from './Globalstate';
 
 
@@ -95,6 +95,7 @@ function Todo() {
       signOut(auth)
       .then(()=>{
         navigate('/')
+        toast.success("signed out successfully")
       })
     }
     catch(e){
