@@ -6,6 +6,7 @@ import { auth, provider } from '../Firestore';
 import { useNavigate } from 'react-router-dom';
 import { game } from './Globalstate';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -23,7 +24,7 @@ function Signup() {
       navigate('/todo');
     } else {
       navigate('/');
-      
+      console.log(user);
     }
   }, [user, loading, navigate, setuser1]);
 
@@ -32,7 +33,7 @@ function Signup() {
       if (password === confirmPassword) {
         createUserWithEmailAndPassword(auth, email, password)
           .then((snap) => {
-          
+            toast.success("Signed Up Successfully")
             setUsername('');
             setEmail('');
             setPassword('');
@@ -49,15 +50,16 @@ function Signup() {
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password)
         .then((snap) => {
-          
+          console.log(snap.user);
           setLog(false);
           setEmail('');
           setPassword('');
           setuser1(true);
+          toast.success("signed in sucessfully")
           navigate('/todo');
         })
         .catch((e) => {
-          console.log(e);
+          toast.error(error)
         });
     }
   };
@@ -66,12 +68,13 @@ function Signup() {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-       
+        console.log(user);
         setuser1(true);
+        toast.success("signed in sucessfully")
         navigate('/todo');
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error)
       });
   };
 
