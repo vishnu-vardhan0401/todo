@@ -24,12 +24,18 @@ function Signup() {
       navigate('/todo');
     } else {
       navigate('/');
-      console.log(user);
+      
     }
   }, [user, loading, navigate, setuser1]);
 
   const handleSignup = () => {
     if (email && username && password && confirmPassword) {
+      if(password.length<6){
+        toast.error('Password must be at least 6 characters long');
+      }
+      if(email.length<10){
+        toast.error('Email must be valid');
+      }
       if (password === confirmPassword) {
         createUserWithEmailAndPassword(auth, email, password)
           .then((snap) => {
@@ -39,15 +45,21 @@ function Signup() {
             setPassword('');
             setConfirmPassword('');
           })
-          .catch((e) => {
-            console.log(e);
-          });
       }
+      
+      else {
+        toast.error("Passwords do not match");
+      }
+    }
+    else{
+      toast.error("Please fill all the fields");
     }
   };
 
   const handleSignin = () => {
+    
     if (email && password) {
+      
       signInWithEmailAndPassword(auth, email, password)
         .then((snap) => {
           console.log(snap.user);
@@ -58,12 +70,11 @@ function Signup() {
           toast.success("signed in sucessfully")
           navigate('/todo');
         })
-        .catch((e) => {
-          toast.error(error)
-        });
-    }
   };
-
+    
+      toast.error("invalid email and password");
+  
+  }
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
