@@ -70,9 +70,11 @@ function Signup() {
           toast.success("signed in sucessfully")
           navigate('/todo');
         })
-  };
+  }
     
-      toast.error("invalid email and password");
+       else{
+    toast.error("invalid email and password");
+  }
   
   }
   const handleGoogleSignIn = () => {
