@@ -114,7 +114,7 @@ function Todo() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button className=' p-2 px-6 rounded-xl bg-blue-400 text-white' onClick={handleAdd}>
+        <button className=' p-2 px-6 rounded-xl bg-blue-600 text-white' onClick={handleAdd}>
           Add
         </button>
       </div>
