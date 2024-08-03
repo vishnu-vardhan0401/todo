@@ -104,7 +104,9 @@ function Todo() {
     }
 
   return (
-    <div className=' w-[90%] ml-6 px-4 md:w-[80%] lg:w-[80%] bg-gray-100 flex flex-col  gap-2 items-center  lg:mt-10 lg:ml-36 md:mt-10 md:ml-20 h-full shadow-2xl rounded-3xl pb-5'>
+    <div className=' flex w-full items-center justify-center'>
+    <div className=' w-full
+     md:w-[90%] lg:w-[90%] mt-8 bg-gray-100 flex flex-col  gap-2 items-center  h-full shadow-2xl rounded-3xl pb-5'>
       <h1 className=' text-blue-500 text-3xl'>MY Todo-s</h1>
       <div className='flex  gap-5 w-[100vw] items-center justify-center'>
         <input
@@ -114,13 +116,14 @@ function Todo() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button className=' p-2 px-6 rounded-xl bg-blue-600 text-white' onClick={handleAdd}>
+        <button className=' p-2 px-6 rounded-xl bg-blue-400 text-white' onClick={handleAdd}>
           Add
         </button>
       </div>
       {todos.map((item) => (
-        <div className='flex gap-2 my-2' key={item.id}>
+        <div className='flex gap-2 mt-2' key={item.id}>
           <h1 className=' break-words w-52 p-1 pl-4 '>{item.title}</h1>
+          
           <button
             className=' border-2 px-4 py-2'
             disabled={edit}
@@ -138,6 +141,8 @@ function Todo() {
         </div>
       ))}
       <Button text='Sign out' onclick={handleSignout} />
+    </div>
+    {/* {todos.sort((a,b)=>a.date-b.date)}{console.log(todos)} */}
     </div>
   );
 }
